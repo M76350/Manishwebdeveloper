@@ -1,36 +1,225 @@
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, ExternalLink, ArrowUpRight } from 'lucide-react';
+
+type ShowcaseItem = {
+  id: number;
+  year: string;
+  title: string;
+  genres: string;
+  link: string;
+  image: string;
+};
+
+const animeCollection: ShowcaseItem[] = [
+  {
+    id: 1,
+    year: '2013',
+    title: 'Attack On Titan',
+    genres: 'Action, Dark fantasy, Post-apocalyptic',
+    link: 'https://www.imdb.com/title/tt2560140/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/levi_ackerman.jpg'
+  },
+  {
+    id: 2,
+    year: '2019',
+    title: 'Demon Slayer',
+    genres: 'Adventure, Dark fantasy, Martial arts',
+    link: 'https://www.imdb.com/title/tt9335498/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/demon-slayer.png'
+  },
+  {
+    id: 3,
+    year: '2016',
+    title: 'Your Name',
+    genres: 'Romance, Fantasy',
+    link: 'https://www.imdb.com/title/tt5311514/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/Your-name.jpg'
+  },
+  {
+    id: 4,
+    year: '2021',
+    title: 'Jujutsu Kaisen',
+    genres: 'Adventure, Dark fantasy, Supernatural',
+    link: 'https://www.imdb.com/title/tt12343534/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/jujutsu-kaisen.jpg'
+  },
+  {
+    id: 5,
+    year: '1999',
+    title: 'One Piece',
+    genres: 'Adventure, Fantasy',
+    link: 'https://www.imdb.com/title/tt0388629/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/one-piece.jpg'
+  },
+  {
+    id: 6,
+    year: '2019',
+    title: 'Weathering with You',
+    genres: 'Fantasy, Romance',
+    link: 'https://www.imdb.com/title/tt9426210/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/weathering-with-you.jpg'
+  },
+  {
+    id: 7,
+    year: '2006',
+    title: 'Death Note',
+    genres: 'Psychological thriller',
+    link: 'https://www.imdb.com/title/tt0877057/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/death-note.jpg'
+  },
+  {
+    id: 8,
+    year: '1999',
+    title: 'Naruto',
+    genres: 'Adventure, Fantasy, Martial arts',
+    link: 'https://www.imdb.com/title/tt0409591/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/naruto.png'
+  },
+  {
+    id: 9,
+    year: '2022',
+    title: 'Suzume',
+    genres: 'Adventure, Animation',
+    link: 'https://www.imdb.com/title/tt16428256/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/Suzume.jpg'
+  },
+  {
+    id: 10,
+    year: '1989',
+    title: 'Dragon Ball',
+    genres: 'Adventure, Fantasy, Martial arts',
+    link: 'https://www.imdb.com/title/tt0280249/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/Dragon-ball.jpg'
+  },
+  {
+    id: 11,
+    year: '2021',
+    title: 'Arcane',
+    genres: 'Action, Adventure, Drama, Sci-Fi',
+    link: 'https://www.imdb.com/title/tt11126994/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/jinx.jpg'
+  },
+  {
+    id: 12,
+    year: '2014',
+    title: 'Haikyuu!!',
+    genres: 'Comedy, Coming-of-age, Sports',
+    link: 'https://www.imdb.com/title/tt3398540/',
+    image: 'https://www.yudiz.com/codepen/hover-reveal/haikyuu.jpg'
+  }
+];
+
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 const Experience = () => {
+  const [hoveredId, setHoveredId] = useState<number>(animeCollection[0].id);
+  const [titleDisplay, setTitleDisplay] = useState<Record<number, string>>(() =>
+    animeCollection.reduce((acc, item) => {
+      acc[item.id] = item.title;
+      return acc;
+    }, {} as Record<number, string>)
+  );
+  const scrambleTimers = useRef<Record<number, number>>({});
+
+  const startScramble = (item: ShowcaseItem) => {
+    const { id, title } = item;
+    if (scrambleTimers.current[id]) {
+      window.clearInterval(scrambleTimers.current[id]);
+    }
+
+    let iteration = 0;
+    scrambleTimers.current[id] = window.setInterval(() => {
+      setTitleDisplay((prev) => ({
+        ...prev,
+        [id]: title
+          .split('')
+          .map((letter, index) => {
+            if (index < iteration) {
+              return title[index];
+            }
+            return letters[Math.floor(Math.random() * letters.length)];
+          })
+          .join('')
+      }));
+
+      iteration += 1 / 3;
+      if (iteration >= title.length) {
+        window.clearInterval(scrambleTimers.current[id]);
+        setTitleDisplay((prev) => ({ ...prev, [id]: title }));
+      }
+    }, 20);
+  };
+
+  const handleMouseEnter = (item: ShowcaseItem) => {
+    setHoveredId(item.id);
+    startScramble(item);
+  };
+
+  useEffect(() => {
+    return () => {
+      Object.values(scrambleTimers.current).forEach((timer) => {
+        if (timer) {
+          window.clearInterval(timer);
+        }
+      });
+    };
+  }, []);
+
   const experiences = [
-    // {
-    //   id: 1,
-    //   title: "Senior Full-Stack Developer",
-    //   company: "TechCorp Solutions",
-    //   location: "San Francisco, CA",
-    //   duration: "2022 - Present",
-    //   description: [
-    //     "Led development of scalable web applications serving 100k+ users",
-    //     "Architected microservices infrastructure reducing deployment time by 60%",
-    //     "Mentored junior developers and conducted code reviews",
-    //     "Implemented CI/CD pipelines improving development workflow"
-    //   ],
-    //   technologies: ["React", "Node.js", "AWS", "Docker", "PostgreSQL"]
-    // },
+    {
+      id: 1,
+      title: "Associate Website Developer",
+      company: "Sync Soft Solution",
+      location: "Delhi",
+      duration: "Sept 2025 - Present",
+      description: [
+        "Developed high-performance websites and internal tools.",
+        "Optimized WordPress/PHP systems for speed and security.",
+        "Created and maintained global shipment tracking modules.",
+        "Improved SEO structure for better visibility and ranking.",
+        "Built custom plugins, API integrations, and reusable components.",
+        "Worked with teams to deliver pixel-perfect UI features."
+      ],
+      technologies: [
+        "WordPress",
+        "PHP",
+        "MySQL",
+        "Global Tracking Systems",
+        "SEO",
+        "Custom Plugins",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ]
+    },
     {
       id: 2,
-      title: "Full-Stack Developer",
-      company: "freeLancer",
-      location: "Remote",
-      duration: "Aug 2025 - Present",
+      title: "Associate Website Developer",
+      company: "Global India Express PVT LTD",
+      location: "Delhi",
+      duration: "Aug 2025 - sept 2025",
       description: [
-        "Developed and maintained 15+ client websites and web applications",
-        "Collaborated with design team to implement pixel-perfect UIs",
-        "Optimized application performance resulting in 40% faster load times",
-        "Integrated third-party APIs and payment processing systems"
+        "Built and optimized service-based websites improving UX and performance.",
+        "Developed courier rate pages, landing pages, and SEO-focused structures.",
+        "Integrated APIs, forms, tracking systems, and backend logic.",
+        "Enhanced page speed and responsiveness across devices.",
+        "Added new features, fixed UI/UX issues, and improved workflows.",
+        "Maintained site security, updates, and technical operations."
       ],
-      technologies: ["React", "Express.js", "MongoDB", "Stripe", "Figma", "Socket.Io", "Streaming", "ReduxToolKit", "Node js", "React Native", "flutter", "dart", "Getx", "Riverpord"]
-    },
+      technologies: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind",
+        "SEO Optimization",
+        "API Integration",
+        "Git & GitHub"
+      ]
+    }
+    ,
     {
       id: 3,
       title: " Associate Frontend Developer",
@@ -169,6 +358,9 @@ const Experience = () => {
             </a>
           </div>
         </motion.div>
+
+        {/* My Activity Showcase */}
+        
       </div>
     </div>
   );
