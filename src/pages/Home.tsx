@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Code, Palette, Zap } from 'lucide-react';
+import { ArrowRight, Download, Eye, Code, Palette, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import TypewriterText from '@/components/TypewriterText';
@@ -12,31 +12,35 @@ import heroImage from '@/assets/hero-image.jpg';
 const Home = () => {
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/manishresume.pdf';
+    link.href = '/manishresume.pdf';           // ← make sure file is in public/manishresume.pdf
     link.download = 'Manish_Kumar_Resume.pdf';
     link.click();
+  };
+
+  const handleViewResume = () => {
+    window.open('/manishresume.pdf', '_blank', 'noopener,noreferrer');
   };
 
   const features = [
     {
       icon: Code,
-      title: "Full-Stack Development",
-      description: "Expert in React, Node.js, and modern web technologies"
+      title: "Front-End Development",
+      description: "React.js • Next.js • Redux Toolkit • Responsive & pixel-perfect UIs"
     },
     {
       icon: Palette,
-      title: "UI/UX Design",
-      description: "Creating beautiful and intuitive user experiences"
+      title: "UI Implementation",
+      description: "Figma / Adobe XD → clean, responsive, user-friendly interfaces"
     },
     {
       icon: Zap,
-      title: "Performance Optimization",
-      description: "Building fast, scalable, and efficient applications"
+      title: "API & State Management",
+      description: "RESTful APIs integration • Redux • Context API • Dynamic rendering"
     }
   ];
 
   return (
-    <div className="min-h-screen overflow-x-hidden  ">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Background Video */}
       <video
         className="bg-video"
@@ -69,9 +73,7 @@ const Home = () => {
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
                 Hi, I'm{' '}
-                <span className="text-gradient">
-                    Manish
-                </span>
+                <span className="text-gradient">Manish Kumar</span>
               </h1>
             </motion.div>
 
@@ -82,7 +84,7 @@ const Home = () => {
             >
               <h2 className="text-xl md:text-3xl lg:text-4xl text-muted-foreground mb-8">
                 <TypewriterText
-                  words={['Full-Stack Developer', 'React Specialist', 'UI/UX Designer', 'Problem Solver']}
+                  words={['Front-End Developer', 'React Specialist', 'Next.js Developer', 'UI Implementer']}
                   className="text-gradient font-semibold"
                 />
               </h2>
@@ -94,15 +96,15 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl lg:max-w-none leading-relaxed"
             >
-              Passionate about creating exceptional digital experiences with modern technologies.
-              Specializing in React, Node.js, and cutting-edge web development.
+            Front-End Developer with 2 years of professional experience building responsive, user-friendly web interfaces using React.js, Next.js, Redux Toolkit, and modern tools. Skilled in pixel-perfect UI from Figma/Adobe XD, RESTful API integration, state management, clean & maintainable code.  
+            Also an SEO expert and digital marketing specialist — I optimize websites for search engines (on-page, technical, performance), improve rankings, drive organic traffic, and handle deployment for fast, scalable production sites.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center flex-wrap"
             >
               <Link to="/projects">
                 <Button variant="hero" size="lg" className="group">
@@ -120,6 +122,16 @@ const Home = () => {
                 <Download className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 Download Resume
               </Button>
+
+              <Button
+                variant="hero"
+                size="lg"
+                onClick={handleViewResume}
+                className="group"
+              >
+                <Eye className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
+                View Resume
+              </Button>
             </motion.div>
           </div>
 
@@ -128,13 +140,13 @@ const Home = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="flex justify-center lg:justify-end order-1 lg:order-2  mt-[100px]"
+            className="flex justify-center lg:justify-end order-1 lg:order-2 mt-[100px]"
           >
             <div className="relative">
               <img
                 src={heroImage}
-                alt="Manish Kumar - Full Stack Developer"
-                className="hero-image w-64 h-64 md:w-0 md:h-0 lg:w-[500px] lg:h-[500px] rounded-full object-cover border-4 border-primary/20 shadow-2xl"
+                alt="Manish Kumar - Front-End Developer"
+                className="hero-image w-64 h-64 md:w-80 md:h-80 lg:w-[500px] lg:h-[500px] rounded-full object-cover border-4 border-primary/20 shadow-2xl"
               />
               <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-full blur-2xl opacity-20 animate-pulse"></div>
             </div>
@@ -154,7 +166,7 @@ const Home = () => {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">What I Do</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              I specialize in building modern, scalable web applications with attention to detail and performance.
+              Building modern, responsive front-end applications with focus on clean code, performance, and great user experience.
             </p>
           </motion.div>
 
@@ -178,6 +190,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
       <Projects />
       <Experience />
       <About />
