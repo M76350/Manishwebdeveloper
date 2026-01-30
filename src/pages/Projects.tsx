@@ -15,9 +15,9 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: "Pizza Bookung & Slot",
+      title: "Pizza Booking & Slot",
       description: "Created a visually engaging Mehandipur Balaji Temple webpage using HTML, CSS, Bootstrap, and WOW.js animations. Features responsive design, immersive storytelling, and dynamic effects that celebrate the temple’s spiritual ambiance.",
-      image: "	https://m76350.github.io/pizza-heart-web/images/f2.png",
+      image: "	https://content.jdmagicbox.com/comp/def_content_category/pizza-outlets-dominos/pizza-outlets-dominos-658-8vme1.jpg  ",
       technologies: ["React", "Socket.io", "Express", "PostgreSQL"],
       liveUrl: "https://m76350.github.io/pizza-heart-web/",
       githubUrl: "https://github.com/M76350/pizza-heart-web"
@@ -69,7 +69,7 @@ const Projects = () => {
       id: 7,
       title: " Solar Energy panel",
       description: "  Created a responsive Delhuan Dairy website with Bootstrap and WOW/AOS animations. Visually engaging, interactive, and mobile-friendly—showcasing dairy products with smooth scroll-triggered effects to enhance user experience.",
-      image: "https://m76350.github.io/solar-energy/img/resources/Mask%20Group%201@2x.png",
+      image: "https://cdn.britannica.com/91/222691-050-E8BDF226/installing-solar-panels.jpg",
       technologies: [
         "Html",
         "Core CSS",
@@ -82,9 +82,9 @@ const Projects = () => {
     },
     {
       id: 8,
-      title: " Netlify web modal",
+      title: " Netflixweb modal",
       description: "   Created a responsive Delhuan Dairy website with Bootstrap and WOW/AOS animations. Visually engaging, interactive, and mobile-friendly—showcasing dairy products with smooth scroll-triggered effects to enhance user experience.",
-      image: "https://m76350.github.io/web-net-fl-web/src/netflic-hero-bg.png",
+      image: "https://s3-alpha.figma.com/hub/file/936981378/40fd9ce4-a7a2-468d-b87c-1dabb77298e2-cover.png",
       technologies: [
         "Html",
         "Core CSS",
@@ -99,7 +99,7 @@ const Projects = () => {
       id: 8,
       title: " Doctor appoinmentvisit",
       description: "  I created a Doctor Appointment Visit Website using HTML, CSS, and JavaScript, designed to help patients easily schedule medical consultations online. The website features a user-friendly interface, responsive design, and interactive booking forms that ensure a smooth appointment process across devices.",
-      image: "https://m76350.github.io/doctorwebsite/image/doc-header-img.png",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnZclK2GSujjwteZgXjCHm-bN7ZhjPeh1bIQ&s",
       technologies: [
         "Html",
         "Core CSS",
