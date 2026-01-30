@@ -12,7 +12,7 @@ import heroImage from '@/assets/hero-image.jpg';
 const Home = () => {
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
+    link.href = '/manishresume.pdf';
     link.download = 'Manish_Kumar_Resume.pdf';
     link.click();
   };
