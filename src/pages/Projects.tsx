@@ -1,8 +1,21 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { usePageSEO } from '@/hooks/use-page-seo';
 
 const Projects = () => {
+  usePageSEO({
+    title: 'Projects | Web Development & SEO Portfolio | Manish Kumar (Bihar)',
+    description:
+      'Explore web development and SEO projects by Manish Kumar from Bihar, including React, Next.js, WordPress and full-stack applications for businesses in India and beyond.',
+    keywords: [
+      'web development projects Bihar',
+      'Manish Kumar portfolio projects',
+      'React projects in Bihar',
+      'WordPress projects in Bihar',
+      'SEO case studies Bihar'
+    ]
+  });
   const projects = [
     {
     id: 1,
@@ -38,7 +51,7 @@ const Projects = () => {
     id: 4,
     title: "Real Estate CRM & Lead Management Platform",
     description: "A full-stack MERN application for managing real estate leads, property listings, and sales pipelines. I was responsible for building the frontend using React & Next.js, developing backend APIs with Node.js, and integrating MongoDB database for secure lead management.",
-    image: "https://homelead.in/wp-content/themes/homelead/assets/images/resources/easy_integration_image.png",
+    image: "/projects/real-estate-crm-lead-management-platform.png",
     technologies: ["React","Next.js","Node.js","MongoDB","Tailwind CSS","Shadcn"],
     liveUrl: "https://homelead.in/",
     githubUrl: "https://github.com/M76350"

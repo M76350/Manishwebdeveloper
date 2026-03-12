@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { usePageSEO } from '@/hooks/use-page-seo';
 
 type ShowcaseItem = {
   id: number;
@@ -11,6 +12,7 @@ type ShowcaseItem = {
   image: string;
 };
 
+// NOTE: Background images are expected in /public/experience/ with the file names below.
 const animeCollection: ShowcaseItem[] = [
   {
     id: 1,
@@ -18,7 +20,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Attack On Titan',
     genres: 'Action, Dark fantasy, Post-apocalyptic',
     link: 'https://www.imdb.com/title/tt2560140/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/levi_ackerman.jpg'
+    image: '/experience/attack-on-titan-levi-ackerman.jpg'
   },
   {
     id: 2,
@@ -26,7 +28,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Demon Slayer',
     genres: 'Adventure, Dark fantasy, Martial arts',
     link: 'https://www.imdb.com/title/tt9335498/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/demon-slayer.png'
+    image: '/experience/demon-slayer-tanjiro.png'
   },
   {
     id: 3,
@@ -34,7 +36,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Your Name',
     genres: 'Romance, Fantasy',
     link: 'https://www.imdb.com/title/tt5311514/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/Your-name.jpg'
+    image: '/experience/your-name-makoto-shinkai.jpg'
   },
   {
     id: 4,
@@ -42,7 +44,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Jujutsu Kaisen',
     genres: 'Adventure, Dark fantasy, Supernatural',
     link: 'https://www.imdb.com/title/tt12343534/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/jujutsu-kaisen.jpg'
+    image: '/experience/jujutsu-kaisen-yuji-itadori.jpg'
   },
   {
     id: 5,
@@ -50,7 +52,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'One Piece',
     genres: 'Adventure, Fantasy',
     link: 'https://www.imdb.com/title/tt0388629/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/one-piece.jpg'
+    image: '/experience/one-piece-luffy.jpg'
   },
   {
     id: 6,
@@ -58,7 +60,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Weathering with You',
     genres: 'Fantasy, Romance',
     link: 'https://www.imdb.com/title/tt9426210/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/weathering-with-you.jpg'
+    image: '/experience/weathering-with-you.jpg'
   },
   {
     id: 7,
@@ -66,7 +68,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Death Note',
     genres: 'Psychological thriller',
     link: 'https://www.imdb.com/title/tt0877057/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/death-note.jpg'
+    image: '/experience/death-note-light-and-l.jpg'
   },
   {
     id: 8,
@@ -74,7 +76,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Naruto',
     genres: 'Adventure, Fantasy, Martial arts',
     link: 'https://www.imdb.com/title/tt0409591/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/naruto.png'
+    image: '/experience/naruto-uzumaki.png'
   },
   {
     id: 9,
@@ -82,7 +84,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Suzume',
     genres: 'Adventure, Animation',
     link: 'https://www.imdb.com/title/tt16428256/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/Suzume.jpg'
+    image: '/experience/suzume.jpg'
   },
   {
     id: 10,
@@ -90,7 +92,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Dragon Ball',
     genres: 'Adventure, Fantasy, Martial arts',
     link: 'https://www.imdb.com/title/tt0280249/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/Dragon-ball.jpg'
+    image: '/experience/dragon-ball-goku.jpg'
   },
   {
     id: 11,
@@ -98,7 +100,7 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Arcane',
     genres: 'Action, Adventure, Drama, Sci-Fi',
     link: 'https://www.imdb.com/title/tt11126994/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/jinx.jpg'
+    image: '/experience/arcane-jinx.jpg'
   },
   {
     id: 12,
@@ -106,13 +108,24 @@ const animeCollection: ShowcaseItem[] = [
     title: 'Haikyuu!!',
     genres: 'Comedy, Coming-of-age, Sports',
     link: 'https://www.imdb.com/title/tt3398540/',
-    image: 'https://www.yudiz.com/codepen/hover-reveal/haikyuu.jpg'
+    image: '/experience/haikyuu-volleyball-team.jpg'
   }
 ];
 
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 const Experience = () => {
+  usePageSEO({
+    title: 'Work Experience | Web Developer & SEO Expert | Manish Kumar (Bihar)',
+    description:
+      'Work experience of Manish Kumar, a web developer and SEO expert from Bihar, including roles in React, Next.js, WordPress, PHP, SEO optimization and full-stack development.',
+    keywords: [
+      'web developer experience Bihar',
+      'Manish Kumar work history',
+      'frontend developer experience in Bihar',
+      'SEO expert work experience Bihar'
+    ]
+  });
   const [hoveredId, setHoveredId] = useState<number>(animeCollection[0].id);
   const [titleDisplay, setTitleDisplay] = useState<Record<number, string>>(() =>
     animeCollection.reduce((acc, item) => {
@@ -360,7 +373,7 @@ const Experience = () => {
         </motion.div>
 
         {/* My Activity Showcase */}
-        
+
       </div>
     </div>
   );

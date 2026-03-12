@@ -1,8 +1,22 @@
 import { motion } from 'framer-motion';
 import { Code2, Palette, Zap, Users, Coffee, Heart } from 'lucide-react';
 import heroImage from '@/assets/hero-image.jpg';
+import { usePageSEO } from '@/hooks/use-page-seo';
 
 const About = () => {
+  usePageSEO({
+    title: 'About Manish Kumar | Web Developer & SEO Specialist in Bihar',
+    description:
+      'Learn about Manish Kumar, a web developer, WordPress developer and SEO specialist from Kochas, Rohtas (Bihar) with 2+ years of experience building high-performance, SEO-optimized websites.',
+    keywords: [
+      'Manish Kumar about',
+      'web developer in Bihar',
+      'SEO specialist in Bihar',
+      'WordPress developer in Bihar',
+      'front-end developer in Rohtas',
+      'web developer in Kochas'
+    ]
+  });
   const skills = [
     { name: "Html", level: 95, category: "Frontend" },
     { name: "Css", level: 90, category: "Frontend" },
@@ -61,7 +75,8 @@ const About = () => {
             About <span className="text-gradient">Me</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Passionate full-stack developer & SEO specialist creating fast, scalable and high-ranking digital products.
+            Passionate full-stack developer & SEO specialist from Kochas, Rohtas (Bihar) creating fast, scalable and
+            high-ranking digital products for businesses across Bihar and India.
           </p>
         </motion.div>
 
@@ -77,9 +92,9 @@ const About = () => {
             <h2 className="text-3xl font-bold mb-6">My Story</h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Hello! I'm <strong>Manish Kumar</strong>, a passionate <strong>Web Developer, WordPress Developer, and SEO Specialist</strong> with over
-                <strong> 2+ years of hands-on experience</strong> building modern, scalable, and high-performance websites.
-                I specialize in creating fast, responsive, and SEO-optimized web applications using modern technologies.
+                Hello! I'm <strong>Manish Kumar</strong>, a passionate <strong>Web Developer, WordPress Developer, and SEO Specialist</strong> based in
+                <strong> Kochas, Rohtas (Bihar)</strong> with over <strong>2+ years of hands-on experience</strong> building modern, scalable, and
+                high-performance websites. I specialize in creating fast, responsive, and SEO-optimized web applications using modern technologies.
               </p>
 
               <p>
@@ -90,8 +105,9 @@ const About = () => {
 
               <p>
                 Along with development, I work extensively in <strong>Search Engine Optimization (SEO)</strong> and
-                <strong>Digital Marketing</strong>. I implement on-page SEO, technical SEO, keyword research, performance optimization,
-                and search ranking strategies that help websites grow organic traffic and improve visibility on search engines.
+                <strong> Digital Marketing</strong>. I implement on-page SEO, technical SEO, keyword research, performance optimization,
+                and search ranking strategies that help websites grow organic traffic and improve visibility on search engines – especially for
+                local businesses looking for a <strong>web developer in Bihar</strong> or a <strong>front-end developer in Rohtas and Kochas</strong>.
               </p>
 
               <p>

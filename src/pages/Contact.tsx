@@ -6,8 +6,21 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
+import { usePageSEO } from '@/hooks/use-page-seo';
 
 const Contact = () => {
+  usePageSEO({
+    title: 'Contact Manish Kumar | Hire Web Developer & SEO Expert in Bihar',
+    description:
+      'Contact Manish Kumar, a front-end and full-stack web developer and SEO expert from Kochas, Rohtas (Bihar). Hire for React, Next.js, WordPress and SEO-optimized website projects.',
+    keywords: [
+      'contact Manish Kumar web developer',
+      'hire web developer in Bihar',
+      'hire frontend developer in Bihar',
+      'hire SEO expert in Bihar',
+      'contact web developer in Kochas Rohtas'
+    ]
+  });
   const [formData, setFormData] = useState({
     name: '',
     email: '',

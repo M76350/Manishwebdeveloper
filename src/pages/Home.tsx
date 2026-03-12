@@ -8,8 +8,23 @@ import Contact from './Contact';
 import Experience from './Experience';
 import About from './About';
 import heroImage from '@/assets/hero-image.jpg';
+import { usePageSEO } from '@/hooks/use-page-seo';
 
 const Home = () => {
+  usePageSEO({
+    title: 'Best Web Developer in Bihar | Front-End & SEO Expert | Manish Kumar',
+    description:
+      'Manish Kumar is a front-end and full-stack web developer and SEO expert from Kochas, Rohtas (Bihar), building fast, responsive and search-optimized websites using React, Next.js, WordPress and modern technologies.',
+    keywords: [
+      'best web developer in Bihar',
+      'front-end developer in Bihar',
+      'React developer in Bihar',
+      'web developer in Kochas',
+      'web developer in Rohtas',
+      'SEO expert in Bihar',
+      'Manish Kumar web developer Bihar'
+    ]
+  });
   const handleDownloadResume = () => {
     const link = document.createElement('a');
     link.href = '/manishresume.pdf';           // ← make sure file is in public/manishresume.pdf
@@ -104,7 +119,7 @@ const Home = () => {
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
                 Hi, I'm{' '}
-                <span className="text-gradient">Manish </span>
+                <span className="text-gradient">Manish Kumar</span>
               </h1>
             </motion.div>
 
@@ -115,7 +130,12 @@ const Home = () => {
             >
               <h2 className="text-xl md:text-3xl lg:text-4xl text-muted-foreground mb-8">
                 <TypewriterText
-                  words={['Front-End Developer', 'React Specialist', 'Next.js Developer', 'UI Implementer']}
+                  words={[
+                    'Front-End Developer in Bihar',
+                    'React & Next.js Specialist',
+                    'SEO Optimized Web Developer',
+                    'UI Implementer from Kochas, Rohtas'
+                  ]}
                   className="text-gradient font-semibold"
                 />
               </h2>
@@ -125,11 +145,23 @@ const Home = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl lg:max-w-none leading-relaxed"
+              className="text-lg md:text-xl text-muted-foreground mb-6 max-w-2xl lg:max-w-none leading-relaxed"
             >
               <span className="text-primary font-semibold">
                 Building scalable web experiences that combine performance, design, and search visibility.
               </span>
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl lg:max-w-none leading-relaxed"
+            >
+              If you are searching for the <strong>best web developer in Bihar</strong>, a{" "}
+              <strong>front-end developer in Kochas, Rohtas</strong>, or a{" "}
+              <strong>React / Next.js and WordPress developer with strong SEO skills</strong>, I help
+              businesses build fast, mobile-friendly and <strong>SEO-optimized websites</strong> that rank on Google.
             </motion.p>
 
             <motion.div
