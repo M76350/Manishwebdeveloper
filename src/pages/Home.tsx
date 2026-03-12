@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Eye, Code, Palette, Zap } from 'lucide-react';
+import { ArrowRight, Download, Eye, Code, Palette, Zap, Globe, Search, TrendingUp, GitBranch, Rocket, Share2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import TypewriterText from '@/components/TypewriterText';
@@ -25,18 +25,49 @@ const Home = () => {
     {
       icon: Code,
       title: "Front-End Development",
-      description: "React.js • Next.js • Redux Toolkit • Responsive & pixel-perfect UIs"
+      description: "React.js • Next.js • Redux Toolkit • Responsive & pixel-perfect UI development"
     },
     {
       icon: Palette,
       title: "UI Implementation",
-      description: "Figma / Adobe XD → clean, responsive, user-friendly interfaces"
+      description: "Figma / Adobe XD designs converted into clean, responsive, user-friendly interfaces"
     },
     {
       icon: Zap,
       title: "API & State Management",
-      description: "RESTful APIs integration • Redux • Context API • Dynamic rendering"
-    }
+      description: "RESTful API integration • Redux • Context API • Dynamic data rendering"
+    },
+    {
+      icon: Globe,
+      title: "WordPress Development",
+      description: "Custom WordPress websites • Theme customization • Plugin integration • PHP & MySQL backend handling"
+    },
+    {
+      icon: Search,
+      title: "SEO Optimization",
+      description: "On-page SEO • Keyword optimization • Technical SEO • Page speed optimization • Search ranking improvements"
+    },
+    {
+      icon: TrendingUp,
+      title: "Digital Marketing",
+      description: "SEO strategy • Content optimization • Lead generation • website analytics and performance tracking"
+    },
+    {
+      icon: GitBranch,
+      title: "Version Control",
+      description: "Git workflow • GitHub repository management • collaborative development • code version tracking"
+    },
+    {
+      icon: Rocket,
+      title: "Deployment & Hosting",
+      description: "Deploying applications on Vercel • Netlify • GitHub Pages • domain configuration and production builds"
+    },
+
+    {
+      icon: Share2,
+      title: "Social Media Content",
+      description: "Unique social media post creation • brand visuals • marketing creatives for digital engagement"
+    },
   ];
 
   return (
@@ -73,7 +104,7 @@ const Home = () => {
             >
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
                 Hi, I'm{' '}
-                <span className="text-gradient">Manish Kumar</span>
+                <span className="text-gradient">Manish </span>
               </h1>
             </motion.div>
 
@@ -96,8 +127,9 @@ const Home = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl lg:max-w-none leading-relaxed"
             >
-            Front-End Developer with 2 years of professional experience building responsive, user-friendly web interfaces using React.js, Next.js, Redux Toolkit, and modern tools. Skilled in pixel-perfect UI from Figma/Adobe XD, RESTful API integration, state management, clean & maintainable code.  
-            Also an SEO expert and digital marketing specialist — I optimize websites for search engines (on-page, technical, performance), improve rankings, drive organic traffic, and handle deployment for fast, scalable production sites.
+              <span className="text-primary font-semibold">
+                Building scalable web experiences that combine performance, design, and search visibility.
+              </span>
             </motion.p>
 
             <motion.div

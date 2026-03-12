@@ -74,27 +74,31 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-           <h2 className="text-3xl font-bold mb-6">My Story</h2>
-<div className="space-y-4 text-muted-foreground leading-relaxed">
-  <p>
-    Hello! I'm Manish Kumar, a passionate <b> Web developer</b>, SEO specialist, and digital marketer with over 
-    <strong> 2 years of hands-on experience</strong> in building modern, scalable, and high-performing web applications.
-    I specialize in creating fast, SEO-friendly, and conversion-optimized digital products.
-  </p>
+            <h2 className="text-3xl font-bold mb-6">My Story</h2>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Hello! I'm <strong>Manish Kumar</strong>, a passionate <strong>Web Developer, WordPress Developer, and SEO Specialist</strong> with over
+                <strong> 2+ years of hands-on experience</strong> building modern, scalable, and high-performance websites.
+                I specialize in creating fast, responsive, and SEO-optimized web applications using modern technologies.
+              </p>
 
-  <p>
-    My technical expertise includes React, Next.js, TypeScript, Node.js, and modern UI frameworks, combined with
-    advanced SEO strategies such as on-page SEO, technical SEO, off-page SEO, link building, keyword research,
-    and social bookmarking. This unique combination allows me to develop applications that not only look great
-    but also rank higher and drive organic traffic.
-  </p>
+              <p>
+                As a <strong>React.js and Next.js Developer</strong>, I build clean, responsive, and user-friendly interfaces
+                while integrating powerful backend solutions. My expertise includes <strong>React, Next.js, JavaScript, Node.js, WordPress, PHP, and MySQL</strong>,
+                allowing me to deliver both custom web applications and dynamic CMS-based websites.
+              </p>
 
-  <p>
-    Alongside development, I actively work on digital marketing strategies including social media marketing,
-    content marketing, and performance optimization to maximize engagement and conversions. I constantly explore
-    new technologies, SEO trends, and growth techniques to deliver impactful and future-ready digital solutions.
-  </p>
-</div>
+              <p>
+                Along with development, I work extensively in <strong>Search Engine Optimization (SEO)</strong> and
+                <strong>Digital Marketing</strong>. I implement on-page SEO, technical SEO, keyword research, performance optimization,
+                and search ranking strategies that help websites grow organic traffic and improve visibility on search engines.
+              </p>
+
+              <p>
+                My goal is to build digital products that combine <strong>beautiful design, strong performance, and high search visibility</strong>.
+                I continuously learn new technologies and marketing strategies to deliver scalable, future-ready, and results-driven web solutions.
+              </p>
+            </div>
 
           </motion.div>
 
@@ -121,7 +125,7 @@ const About = () => {
                 <div className="text-sm text-muted-foreground">Projects Completed</div>
               </div>
               <div className="card-gradient p-6 rounded-xl text-center">
-                <div className="text-3xl font-bold text-primary mb-2">1.5+</div>
+                <div className="text-3xl font-bold text-primary mb-2">2 </div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
             </div>
