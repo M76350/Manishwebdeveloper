@@ -131,7 +131,7 @@ const Home = () => {
               <h2 className="text-xl md:text-3xl lg:text-4xl text-muted-foreground mb-8">
                 <TypewriterText
                   words={[
-                    'Front-End Developer in Bihar',
+                    'Front-End Developer ',
                     'React & Next.js Specialist',
                     'SEO Optimized Web Developer',
                     'UI Implementer from Kochas, Rohtas'

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePageSEO } from '@/hooks/use-page-seo';
+import { useState } from 'react';
 
 const Projects = () => {
   usePageSEO({
@@ -16,6 +17,11 @@ const Projects = () => {
       'SEO case studies Bihar'
     ]
   });
+
+  // ✅ Pagination State
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
   const projects = [
     {
     id: 1,
@@ -41,7 +47,7 @@ const Projects = () => {
     id: 3,
     title: "Global India Express Courier Website",
     description: "Corporate logistics and international courier website that allows customers to explore services and submit shipping inquiries. My main role included WordPress development, implementing SEO optimization, and integrating PHP & MySQL database for handling user inquiries.",
-    image: "https://scontent.fdel1-2.fna.fbcdn.net/v/t39.30808-6/481314977_1053883630096875_2902088875333456848_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=104&ccb=1-7&_nc_sid=2a1932&_nc_ohc=rCKYMs5ejHUQ7kNvwGP49uA&_nc_oc=AdneyaO0SwxrqcSBQIctfd8ZpQv_XHWwJWxt0LhhO9WWPkuvj7sW0KjVu-Le1H1p6G587XJIcdctqBsKRyUE-vqJ&_nc_zt=23&_nc_ht=scontent.fdel1-2.fna&_nc_gid=sLo8BdjN25CRHraSWn50Bw&_nc_ss=8&oh=00_AfzbsuObDAYcs8J87a66K-Xr7X_VWgcAHvred76Wtt_r8A&oe=69B86B59",
+    image: "https://i.postimg.cc/qvs8fBcF/international-courer-service.webp",
     technologies: ["WordPress","PHP","MySQL","SEO","HTML","CSS","JavaScript"],
     liveUrl: "https://www.globalindiaexpress.com/",
     githubUrl: "https://github.com/M76350"
@@ -51,7 +57,7 @@ const Projects = () => {
     id: 4,
     title: "Real Estate CRM & Lead Management Platform",
     description: "A full-stack MERN application for managing real estate leads, property listings, and sales pipelines. I was responsible for building the frontend using React & Next.js, developing backend APIs with Node.js, and integrating MongoDB database for secure lead management.",
-    image: "/projects/real-estate-crm-lead-management-platform.png",
+    image: "https://i.postimg.cc/YCzb6zPz/homelead.png",
     technologies: ["React","Next.js","Node.js","MongoDB","Tailwind CSS","Shadcn"],
     liveUrl: "https://homelead.in/",
     githubUrl: "https://github.com/M76350"
@@ -157,9 +163,21 @@ const Projects = () => {
     }
     ];
 
+  // ✅ Pagination Logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProjects = projects.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(projects.length / itemsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -171,22 +189,21 @@ const Projects = () => {
             My <span className="text-gradient">Projects</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A showcase of my recent work and personal projects. Each project represents
-            a unique challenge and demonstrates different aspects of my development skills.
+            A showcase of my recent work and personal projects.
           </p>
         </motion.div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {currentProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group card-gradient rounded-2xl overflow-hidden"
             >
-              {/* Project Image */}
+              {/* Image */}
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
@@ -194,12 +211,12 @@ const Projects = () => {
                   className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
-                {/* Overlay on hover */}
+                {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center space-x-4">
                   <Button variant="hero" size="sm" asChild>
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                       <Eye className="h-4 w-4 mr-2" />
-                      Live Demo
+                      Live
                     </a>
                   </Button>
                   <Button variant="hero-outline" size="sm" asChild>
@@ -211,37 +228,39 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Project Content */}
+              {/* Content */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+
+                <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                {/* Tech */}
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium"
+                      className="px-2 py-1 bg-primary/10 text-primary rounded text-xs"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex space-x-3">
-                  <Button variant="hero" size="sm" className="flex-1" asChild>
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                {/* Buttons */}
+                <div className="flex gap-2">
+                  <Button size="sm" className="flex-1" asChild>
+                    <a href={project.liveUrl} target="_blank">
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      View Project
+                      View
                     </a>
                   </Button>
-                  <Button variant="outline" size="sm" asChild>
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+
+                  <Button size="sm" variant="outline" asChild>
+                    <a href={project.githubUrl} target="_blank">
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
@@ -250,6 +269,41 @@ const Projects = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* ✅ Pagination */}
+        {projects.length > 6 && (
+          <div className="flex justify-center mt-12 gap-2 flex-wrap">
+
+            {/* Prev */}
+            <Button
+              variant="outline"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              Prev
+            </Button>
+
+            {/* Page Numbers */}
+            {[...Array(totalPages)].map((_, i) => (
+              <Button
+                key={i}
+                variant={currentPage === i + 1 ? 'hero' : 'outline'}
+                onClick={() => handlePageChange(i + 1)}
+              >
+                {i + 1}
+              </Button>
+            ))}
+
+            {/* Next */}
+            <Button
+              variant="outline"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              Next
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
