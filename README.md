@@ -1,32 +1,129 @@
-# My Portfolio Website
+# 🚀 Manish Kumar - Developer Portfolio
 
-A personal portfolio built with modern web technologies, showcasing projects and skills. Developed using React, TypeScript, Vite, shadcn-ui, and Tailwind CSS.
+Welcome to my personal developer portfolio website!
+This project showcases my work, skills, and experience as a **Full Stack Web Developer** specializing in modern web technologies.
 
-## Live Preview
+---
 
-Explore the live site here:  
-https://manish-code-dinara.vercel.app/
+## 🧑‍💻 About Me
 
-## Tech Stack
+Hi, I'm **Manish Kumar** from Bihar, India.
+I am a passionate **Full Stack Developer** with experience in building scalable web applications using modern technologies.
 
-Built with:
-- **Vite** — fast development tooling  
-- **React** + **TypeScript** — for modern, type-safe component development  
-- **Tailwind CSS** & **shadcn-ui** — for efficient styling and reusable UI components :contentReference[oaicite:0]{index=0}  
+* 💻 Frontend: React.js, Next.js, TypeScript
+* ⚙️ Backend: Node.js, Express.js
+* 🗄️ Database: MongoDB, MySQL
+* 🎨 UI: Tailwind CSS, ShadCN, Framer Motion
+* 🌐 Other: SEO, WordPress Development
 
-## Features
+---
 
-- Responsive and accessible design  
-- Dark/light theme support (if implemented)  
-- Project showcase with clean navigation  
-- Smooth UI interactions powered by shadcn-ui components  
+## 🌐 Live Website
 
-## Getting Started
+👉 [Visit Portfolio](https://manish-code-dinara.vercel.app/)
 
-Use the following steps to set up the project locally:
+---
+
+## ✨ Features
+
+* ⚡ Modern UI with smooth animations (Framer Motion)
+* 📱 Fully responsive design (Mobile + Desktop)
+* 🔍 SEO optimized pages
+* 🧩 Modular and reusable components
+* 📂 Projects showcase with pagination
+* 📧 Contact form integration (EmailJS)
+* 🎯 Performance optimized
+
+---
+
+## 🛠️ Tech Stack
+
+| Category   | Technologies                 |
+| ---------- | ---------------------------- |
+| Frontend   | React.js, TypeScript         |
+| Styling    | Tailwind CSS, ShadCN UI      |
+| Animation  | Framer Motion                |
+| Backend    | Node.js (for APIs if needed) |
+| Database   | MongoDB / MySQL              |
+| Deployment | Vercel                       |
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+│── components/     # Reusable UI components
+│── pages/          # Page components
+│── hooks/          # Custom hooks
+│── assets/         # Images & static files
+│── styles/         # Global styles
+│── App.tsx
+│── main.tsx
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run locally:
 
 ```bash
-git clone <YOUR_GIT_URL>
-cd <YOUR_PROJECT_NAME>
+# Clone the repository
+git clone https://github.com/M76350/your-repo-name.git
+
+# Navigate to project folder
+cd your-repo-name
+
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
+```
+
+---
+
+## 📸 Screenshots
+
+*Add screenshots of your portfolio here (optional but recommended)*
+
+---
+
+## 📈 SEO Optimization
+
+This portfolio includes:
+
+* Meta tags optimization
+* Dynamic page titles
+* Keyword targeting
+* Fast loading performance
+
+---
+
+## 📬 Contact Me
+
+* 📧 Email:manishkumar09112002@gmail.com
+* 💼 LinkedIn: https://linkedin.com/in/manish0911
+* 🐙 GitHub: https://github.com/M76350
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+If you'd like to improve this project, feel free to fork and submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## ⭐ Show Your Support
+
+If you like this project, please ⭐ the repository and share it!
+
+---
