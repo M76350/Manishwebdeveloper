@@ -1,14 +1,33 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot     
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
+# ✅ robots.txt — Manish Kumar Portfolio
+# Best Web Developer in Bihar & Rohtas | Full Stack & Frontend Developer
 
 User-agent: *
 Allow: /
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /dist/
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Sitemap
+Sitemap: https://manish-code-dinara.vercel.app/sitemap.xml

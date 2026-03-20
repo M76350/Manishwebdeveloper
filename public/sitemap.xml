@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <!-- Home — Best Web Developer in Bihar & Rohtas | Manish Kumar -->
+  <url>
+    <loc>https://manish-code-dinara.vercel.app/</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-<url>
-  <loc>https://manish-code-dinara.vercel.app/</loc>
-  <lastmod>2025-09-15T19:24:28+00:00</lastmod>
-</url>
+  <!-- Projects — Web Development Portfolio Bihar -->
+  <url>
+    <loc>https://manish-code-dinara.vercel.app/projects</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
+  <!-- Experience — Full Stack & Frontend Developer Experience Bihar -->
+  <url>
+    <loc>https://manish-code-dinara.vercel.app/experience</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About — About Manish Kumar Web Developer Rohtas Bihar -->
+  <url>
+    <loc>https://manish-code-dinara.vercel.app/about</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact — Hire Web Developer in Bihar | Contact Manish Kumar -->
+  <url>
+    <loc>https://manish-code-dinara.vercel.app/contact</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>

@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./components/ThemeProvider";
 import CustomCursor from "./components/CustomCursor";
 import ReCaptchaModal from "./components/ReCaptchaModal";
 import Navbar from "./components/Navbar";
@@ -20,29 +21,31 @@ const App = () => {
   const [isVerified, setIsVerified] = useState(false);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <CustomCursor />
-        
-        {!isVerified && <ReCaptchaModal onVerified={() => setIsVerified(true)} />}
-        
-        {isVerified && (
-          <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        )}
-      </TooltipProvider>
-    </QueryClientProvider>
+    <ThemeProvider defaultTheme="dark" storageKey="portfolio-theme">
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <CustomCursor />
+
+          {!isVerified && <ReCaptchaModal onVerified={() => setIsVerified(true)} />}
+
+          {isVerified && (
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          )}
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 };
 

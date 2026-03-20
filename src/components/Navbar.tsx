@@ -1,17 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from './ThemeToggle';
 import mkLogo from '@/assets/mk-logo.png';
 
 const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return document.documentElement.classList.contains('dark');
-    }
-    return true;
-  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -31,16 +26,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
 
   return (
     <motion.nav
@@ -85,14 +70,7 @@ const Navbar = () => {
 
           {/* Dark Mode Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleDarkMode}
-              className="hidden md:flex"
-            >
-              {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-            </Button>
+            <ThemeToggle />
 
             <Button
               variant="ghost"
@@ -127,14 +105,9 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
-            <Button
-              variant="ghost"
-              onClick={toggleDarkMode}
-              className="flex items-center space-x-2"
-            >
-              {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              <span>Toggle Theme</span>
-            </Button>
+            <div className="pt-2">
+              <ThemeToggle />
+            </div>
           </div>
         </motion.div>
       </div>
