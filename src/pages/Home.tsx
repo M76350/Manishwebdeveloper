@@ -9,249 +9,173 @@ import Experience from './Experience';
 import About from './About';
 import heroImage from '@/assets/hero-image.jpg';
 import { usePageSEO } from '@/hooks/use-page-seo';
+import { fadeUp, fadeLeft, fadeRight, staggerContainer, scaleIn, viewport } from '@/hooks/use-scroll-animation';
+
+const features = [
+  { icon: Code,       title: 'Front-End Development',   description: 'React.js · Next.js · Redux Toolkit · Pixel-perfect responsive UI' },
+  { icon: Palette,    title: 'UI Implementation',        description: 'Figma / Adobe XD to clean, responsive, user-friendly interfaces' },
+  { icon: Zap,        title: 'API & State Management',   description: 'RESTful APIs · Redux · Context API · Dynamic data rendering' },
+  { icon: Globe,      title: 'WordPress Development',    description: 'Custom themes · Plugin integration · PHP & MySQL backend' },
+  { icon: Search,     title: 'SEO Optimization',         description: 'On-page · Technical SEO · Page speed · Search ranking improvements' },
+  { icon: TrendingUp, title: 'Digital Marketing',        description: 'SEO strategy · Content optimization · Analytics & lead generation' },
+  { icon: GitBranch,  title: 'Version Control',          description: 'Git workflow · GitHub · Collaborative development' },
+  { icon: Rocket,     title: 'Deployment & Hosting',     description: 'Vercel · Netlify · GitHub Pages · Production builds' },
+  { icon: Share2,     title: 'Social Media Content',     description: 'Brand visuals · Marketing creatives · Digital engagement' },
+];
 
 const Home = () => {
   usePageSEO({
     title: 'Best Web Developer in Bihar | Front-End & SEO Expert | Manish Kumar',
-    description:
-      'Manish Kumar is a front-end and full-stack web developer and SEO expert from Kochas, Rohtas (Bihar), building fast, responsive and search-optimized websites using React, Next.js, WordPress and modern technologies.',
-    keywords: [
-      'best web developer in Bihar',
-      'front-end developer in Bihar',
-      'React developer in Bihar',
-      'web developer in Kochas',
-      'web developer in Rohtas',
-      'SEO expert in Bihar',
-      'Manish Kumar web developer Bihar'
-    ]
+    description: 'Manish Kumar is a front-end and full-stack web developer and SEO expert from Kochas, Rohtas (Bihar), building fast, responsive and search-optimized websites.',
+    keywords: ['best web developer in Bihar', 'front-end developer in Bihar', 'React developer in Bihar', 'web developer in Kochas', 'web developer in Rohtas', 'SEO expert in Bihar', 'Manish Kumar web developer Bihar'],
   });
+
   const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/manishresume.pdf';           // ← make sure file is in public/manishresume.pdf
-    link.download = 'Manish_Kumar_Resume.pdf';
-    link.click();
+    const a = document.createElement('a');
+    a.href = '/manishresume.pdf';
+    a.download = 'Manish_Kumar_Resume.pdf';
+    a.click();
   };
-
-  const handleViewResume = () => {
-    window.open('/manishresume.pdf', '_blank', 'noopener,noreferrer');
-  };
-
-  const features = [
-    {
-      icon: Code,
-      title: "Front-End Development",
-      description: "React.js • Next.js • Redux Toolkit • Responsive & pixel-perfect UI development"
-    },
-    {
-      icon: Palette,
-      title: "UI Implementation",
-      description: "Figma / Adobe XD designs converted into clean, responsive, user-friendly interfaces"
-    },
-    {
-      icon: Zap,
-      title: "API & State Management",
-      description: "RESTful API integration • Redux • Context API • Dynamic data rendering"
-    },
-    {
-      icon: Globe,
-      title: "WordPress Development",
-      description: "Custom WordPress websites • Theme customization • Plugin integration • PHP & MySQL backend handling"
-    },
-    {
-      icon: Search,
-      title: "SEO Optimization",
-      description: "On-page SEO • Keyword optimization • Technical SEO • Page speed optimization • Search ranking improvements"
-    },
-    {
-      icon: TrendingUp,
-      title: "Digital Marketing",
-      description: "SEO strategy • Content optimization • Lead generation • website analytics and performance tracking"
-    },
-    {
-      icon: GitBranch,
-      title: "Version Control",
-      description: "Git workflow • GitHub repository management • collaborative development • code version tracking"
-    },
-    {
-      icon: Rocket,
-      title: "Deployment & Hosting",
-      description: "Deploying applications on Vercel • Netlify • GitHub Pages • domain configuration and production builds"
-    },
-
-    {
-      icon: Share2,
-      title: "Social Media Content",
-      description: "Unique social media post creation • brand visuals • marketing creatives for digital engagement"
-    },
-  ];
 
   return (
     <div className="min-h-screen overflow-x-hidden">
-      {/* Background Video */}
-      <video
-        className="bg-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
+      <video className="bg-video" autoPlay muted loop playsInline>
         <source src="/bg-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/90 to-primary/10" />
+      {/* ── Hero ── */}
+      <section className="relative min-h-screen flex items-center justify-center px-4">
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-16 items-center">
 
-        {/* Floating elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }} />
-        </div>
-
-        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center px-4 max-w-7xl mx-auto w-full">
-          {/* Text Content */}
-          <div className="text-center lg:text-left order-2 lg:order-1">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-                Hi, I'm{' '}
-                <span className="text-gradient">Manish Kumar</span>
-              </h1>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h2 className="text-xl md:text-3xl lg:text-4xl text-muted-foreground mb-8">
-                <TypewriterText
-                  words={[
-                    'Front-End Developer ',
-                    'React & Next.js Specialist',
-                    'SEO Optimized Web Developer',
-                    'UI Implementer from Kochas, Rohtas'
-                  ]}
-                  className="text-gradient font-semibold"
-                />
-              </h2>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-muted-foreground mb-6 max-w-2xl lg:max-w-none leading-relaxed"
-            >
-              <span className="text-primary font-semibold">
-                Building scalable web experiences that combine performance, design, and search visibility.
-              </span>
+          {/* Text */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="show"
+            className="order-2 lg:order-1 text-center lg:text-left"
+          >
+            <motion.p variants={fadeUp} className="text-primary text-sm font-mono tracking-widest uppercase mb-4">
+              Available for hire
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-base md:text-lg text-muted-foreground mb-12 max-w-2xl lg:max-w-none leading-relaxed"
-            >
-              If you are searching for the <strong>best web developer in Bihar</strong>, a{" "}
-              <strong>front-end developer in Kochas, Rohtas</strong>, or a{" "}
-              <strong>React / Next.js and WordPress developer with strong SEO skills</strong>, I help
-              businesses build fast, mobile-friendly and <strong>SEO-optimized websites</strong> that rank on Google.
+            <motion.h1 variants={fadeUp} className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-[1.1]">
+              Hi, I'm{' '}
+              <span className="text-primary">Manish Kumar</span>
+            </motion.h1>
+
+            <motion.div variants={fadeUp} className="text-xl md:text-2xl text-muted-foreground mb-6 h-9">
+              <TypewriterText
+                words={['Front-End Developer', 'React & Next.js Specialist', 'SEO Expert', 'Full Stack Developer']}
+                className="text-foreground font-medium"
+              />
+            </motion.div>
+
+            <motion.p variants={fadeUp} className="text-muted-foreground leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0">
+              Building fast, scalable web experiences from{' '}
+              <span className="text-foreground font-medium">Kochas, Rohtas (Bihar)</span>.
+              Specializing in React, Next.js, WordPress and SEO-optimized websites that rank on Google.
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center flex-wrap"
-            >
+            <motion.div variants={fadeUp} className="flex flex-wrap gap-3 justify-center lg:justify-start">
               <Link to="/projects">
-                <Button variant="hero" size="lg" className="group">
+                <Button className="group h-11 px-6 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-all">
                   View My Work
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-
               <Button
-                variant="hero-outline"
-                size="lg"
+                variant="outline"
+                className="h-11 px-6 rounded-md border-border hover:border-primary hover:text-primary transition-all"
                 onClick={handleDownloadResume}
-                className="group"
               >
-                <Download className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                Download Resume
+                <Download className="mr-2 h-4 w-4" />
+                Resume
               </Button>
-
               <Button
-                variant="hero"
-                size="lg"
-                onClick={handleViewResume}
-                className="group"
+                variant="outline"
+                className="h-11 px-6 rounded-md border-border hover:border-primary hover:text-primary transition-all"
+                onClick={() => window.open('/manishresume.pdf', '_blank')}
               >
-                <Eye className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                View Resume
+                <Eye className="mr-2 h-4 w-4" />
+                View CV
               </Button>
             </motion.div>
-          </div>
+          </motion.div>
 
-          {/* Hero Image */}
+          {/* Image */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-            className="flex justify-center lg:justify-end order-1 lg:order-2 mt-[100px]"
+            variants={fadeRight}
+            initial="hidden"
+            animate="show"
+            className="order-1 lg:order-2 flex justify-center lg:justify-end mt-20 lg:mt-0"
           >
             <div className="relative">
+              <div className="absolute -inset-1 rounded-full bg-primary/10 blur-2xl" />
               <img
                 src={heroImage}
-                alt="Manish Kumar - Front-End Developer"
-                className="hero-image w-64 h-64 md:w-80 md:h-80 lg:w-[500px] lg:h-[500px] rounded-full object-cover border-4 border-primary/20 shadow-2xl"
+                alt="Manish Kumar — Full Stack Developer"
+                className="hero-image relative w-56 h-56 md:w-72 md:h-72 lg:w-[420px] lg:h-[420px] rounded-full object-cover border border-border"
               />
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-full blur-2xl opacity-20 animate-pulse"></div>
             </div>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
+        >
+          <span className="text-xs text-muted-foreground tracking-widest uppercase">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
+            className="w-px h-8 bg-primary/40"
+          />
+        </motion.div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 px-4">
+      {/* ── What I Do ── */}
+      <section className="py-28 px-4 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">What I Do</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Building modern, responsive front-end applications with focus on clean code, performance, and great user experience.
-            </p>
+            <motion.div variants={fadeUp} className="section-line" />
+            <motion.h2 variants={fadeUp} className="text-4xl md:text-5xl font-bold tracking-tight">
+              What I Do
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+              End-to-end web development with a focus on performance, clean code, and search visibility.
+            </motion.p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            className="grid md:grid-cols-3 gap-5"
+          >
+            {features.map((f) => (
               <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="card-gradient p-8 rounded-2xl text-center group"
+                key={f.title}
+                variants={scaleIn}
+                className="card-gradient p-6 rounded-lg group cursor-default"
               >
-                <div className="mx-auto w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="h-8 w-8 text-white" />
+                <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <f.icon className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                <h3 className="font-semibold mb-2">{f.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{f.description}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
