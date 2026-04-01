@@ -6,64 +6,83 @@ import { fadeUp, fadeLeft, staggerContainer, viewport } from '@/hooks/use-scroll
 const experiences = [
   {
     id: 1,
-    title: 'Associate Website Developer',
+    title: 'Associate Website Developer (MERN Stack)',
     company: 'Sync Soft Solution',
+    link: 'https://syncsoftsolution.com',
     location: 'Delhi',
     duration: 'Sept 2025 – Present',
     type: 'Full-time',
     description: [
-      'Developed high-performance websites and internal tools',
-      'Optimized WordPress/PHP systems for speed and security',
-      'Created and maintained global shipment tracking modules',
-      'Improved SEO structure for better visibility and ranking',
-      'Built custom plugins, API integrations, and reusable components',
+      'Developing and maintaining high-performance websites along with full-stack web applications',
+      'Building scalable MERN stack applications using React, Node.js, Express, and MongoDB',
+      'Designing and integrating RESTful APIs and third-party services',
+      'Working on WordPress and PHP-based systems with performance and security optimization',
+      'Implementing reusable frontend components and modular architecture for scalability',
+      'Improving SEO structure, page speed, and overall user experience across platforms',
+      'Collaborating with cross-functional teams in Agile development environments',
     ],
-    technologies: ['WordPress', 'PHP', 'MySQL', 'SEO', 'JavaScript', 'HTML', 'CSS'],
+    technologies: [
+      'React',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'WordPress',
+      'PHP',
+      'MySQL',
+      'JavaScript',
+      'SEO',
+      'Git',
+    ],
   },
   {
     id: 2,
-    title: 'Associate Website Developer',
-    company: 'Global India Express PVT LTD',
+    title: 'React / Full Stack Developer',
+    company: 'Global India Express Pvt Ltd',
+    link: 'https://www.globalindiaexpress.com',
     location: 'Delhi',
     duration: 'Aug 2025 – Sept 2025',
     type: 'Full-time',
     description: [
-      'Built and optimized service-based websites improving UX and performance',
-      'Developed courier rate pages, landing pages, and SEO-focused structures',
-      'Integrated APIs, forms, tracking systems, and backend logic',
-      'Enhanced page speed and responsiveness across devices',
+      'Developed high-performance, SEO-optimized web applications using Next.js with server-side rendering (SSR)',
+      'Engineered dynamic, data-driven interfaces including pricing modules and landing pages',
+      'Integrated backend services and external APIs with robust validation and error handling mechanisms',
+      'Enhanced application responsiveness and cross-browser compatibility for improved user experience',
+      'Contributed to performance tuning and technical optimization to meet business requirements',
     ],
-    technologies: ['React', 'Next.js', 'Node.js', 'MongoDB', 'Tailwind', 'SEO', 'Git'],
+    technologies: ['React', 'Next.js', 'Node.js', 'MongoDB', 'Tailwind CSS', 'SEO', 'Git'],
   },
   {
     id: 3,
-    title: 'Associate Frontend Developer',
+    title: 'Frontend Developer (React)',
     company: 'Telepathy Infotech Pvt Ltd',
+    link: 'https://telepathyinfotech.com',
     location: 'Jaipur',
     duration: 'Jan 2025 – Aug 2025',
     type: 'Full-time',
     description: [
-      'Built responsive web interfaces for early-stage startups',
-      'Implemented modern JavaScript frameworks and libraries',
-      'Worked closely with UX designers to enhance user experience',
-      'Participated in agile development cycles and sprint planning',
+      'Developed scalable and maintainable frontend applications using React and Next.js',
+      'Implemented advanced state management solutions using Redux for complex data handling',
+      'Collaborated with UI/UX teams to translate business requirements into intuitive user interfaces',
+      'Integrated animations and interactive elements to enhance user engagement and usability',
+      'Participated in Agile ceremonies including sprint planning, code reviews, and daily stand-ups',
     ],
-    technologies: ['React', 'Next.js', 'Redux', 'Shadcn', 'GSAP', 'Tailwind', 'Git'],
+    technologies: ['React', 'Next.js', 'Redux', 'Tailwind CSS', 'GSAP', 'Git'],
   },
   {
     id: 4,
-    title: 'Junior Web Developer Intern',
+    title: 'Frontend Developer Intern',
     company: 'Telepathy Infotech Pvt Ltd',
+    link: 'https://telepathyinfotech.com',
     location: 'Remote',
     duration: 'June 2024 – Dec 2024',
     type: 'Internship',
     description: [
-      'Developed custom WordPress themes and plugins',
-      'Created responsive websites using HTML, CSS, and JavaScript',
-      'Assisted in SEO optimization and performance improvements',
-      'Provided technical support and maintenance for client websites',
+      'Built responsive and user-friendly web interfaces using modern HTML, CSS, and JavaScript standards',
+      'Assisted in migrating legacy codebases to component-based React architecture',
+      'Performed basic performance optimization and SEO enhancements',
+      'Supported senior developers in debugging, testing, and maintaining web applications',
     ],
-    technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript', 'WordPress'],
+    technologies: ['HTML', 'CSS', 'JavaScript', 'React', 'Bootstrap'],
   },
 ];
 
@@ -120,7 +139,16 @@ const Experience = () => {
                     <div>
                       <h3 className="font-semibold text-lg leading-tight">{exp.title}</h3>
                       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1 text-sm text-muted-foreground">
-                        <span className="text-primary font-medium">{exp.company}</span>
+                        {/* <span className="text-primary font-medium">{exp.company}</span> */}
+                        <a
+                          href={exp.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary font-medium inline-flex items-center gap-1 hover:underline"
+                        >
+                          {exp.company}
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
                         <span className="flex items-center gap-1">
                           <MapPin className="h-3.5 w-3.5" />{exp.location}
                         </span>
