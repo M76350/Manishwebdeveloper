@@ -179,7 +179,7 @@ const Home = () => {
         </div>
       </section>
 
-      <Projects />
+      <Projects isPreview />
       <Experience />
       <About />
       <Contact />
