@@ -8,6 +8,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import CustomCursor from "./components/CustomCursor";
 import ReCaptchaModal from "./components/ReCaptchaModal";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
@@ -41,6 +42,7 @@ const App = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
+              <Footer />
             </BrowserRouter>
           )}
         </TooltipProvider>
